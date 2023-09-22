@@ -1,7 +1,21 @@
-package academy.learnprogramming;
+package exam;
 
 import java.io.FileNotFoundException;
 import java.util.Arrays;
+
+public class ExamPrep3 {}
+
+// * (class A / class B extends A) | A cls = new B(); -> valid
+// * this() and super() can not be used in the same constructor
+// * size() is a method in the List interface | NOT an array
+// * Integer, String, int -> valid switch types
+// * StringBuilder > String -> StringBuilder consumes less memory
+// * byteValue() only exists in the Integer class
+// * (unlike primitive vars) the changes made through a copy of an object reference get reflected in the object itself
+// * int x = 0xE -> 14
+// ** What are fields?
+// ** What causes compile errors?
+// ** Import Libraries
 
 class Phone {
   private int size;
@@ -69,34 +83,6 @@ class Create {
   }
 }
 
-
-public class ExamPrep3 {
-  // * (class A / class B extends A) | A cls = new B(); -> valid
-  // * this() and super() can not be used in the same constructor
-  // * size() is a method in the List interface | NOT an array
-  // * Integer, String, int -> valid switch types
-  // * StringBuilder > String -> StringBuilder consumes less memory
-  // * byteValue() only exists in the Integer class
-  // * (unlike primitive vars) the changes made through a copy of an object reference get reflected in the object itself
-  // * int x = 0xE -> 14
-  // ** What are fields?
-  // ** What causes compile errors?
-  // ** Import Libraries
-
-  public static void main(String[] args) {
-    Samples3 s = new Samples3();
-    // s.scope(); 
-    // s.os(); 
-    // s.eString();
-    // s.strMatch();
-    // s.math();
-    // s.bools();
-    // s.stopLoop();
-    // s.byteVal();
-    // s.matrix();
-    // s.print();
-  }
-}
 
 class JC {
   String name = "Java";
@@ -200,3 +186,20 @@ class Samples3 {
 
   }
 }
+
+class RunSamples {
+  public static void main(String[] args) {
+    Samples3 s = new Samples3();
+    s.scope(); 
+    s.os(); 
+    s.eString();
+    s.strMatch();
+    s.math();
+    s.bools();
+    s.stopLoop();
+    s.byteVal();
+    s.matrix();
+    s.print();
+  }
+}
+

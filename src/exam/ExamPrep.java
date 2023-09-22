@@ -1,4 +1,4 @@
-package academy.learnprogramming;
+package exam;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
