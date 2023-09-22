@@ -400,19 +400,19 @@ class Twin {
   public boolean equals(Twin t) {
     return this.age == t.age & this.gender == t.gender;
   }
-}
 
-public static void main(String[] args) {
-  Twin t1 = new Twin(13, "Male");
-  Twin t2 = new Twin(13, "Male");
-  if (t1 == t2) {
-    System.out.println("Equal");
-  } else {
-    System.out.println("Not Equal"); // Not Equal cus == compares the references of the objects
+  public static void main(String[] args) {
+    Twin t1 = new Twin(13, "Male");
+    Twin t2 = new Twin(13, "Male");
+    if (t1 == t2) {
+      System.out.println("Equal");
+    } else {
+      System.out.println("Not Equal"); // Not Equal cus == compares the references of the objects
+    }
+
+    System.out.println(t1.hashCode()); // 366712642
+    System.out.println(t2.hashCode()); // 1829164700
   }
-
-  System.out.println(t1.hashCode()); // 366712642
-  System.out.println(t2.hashCode()); // 1829164700
 }
 
 

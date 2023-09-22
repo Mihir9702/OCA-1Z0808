@@ -1,6 +1,7 @@
 package exam;
 
 import java.io.FileNotFoundException;
+import java.time.LocalDate;
 import java.util.Arrays;
 
 public class ExamPrep3 {}
@@ -83,6 +84,53 @@ class Create {
   }
 }
 
+class PassString {
+  String str = "";
+  static void pass(String str) {
+    str.concat("Passed ");
+  }
+
+  public static void main(String[] args) {
+    String str = "Failed ";
+    pass(str);
+    System.out.println(str);
+  }
+}
+
+class ForLoopConditions {
+  public static void main(String[] args) {
+    int a = 10;
+    for (; a <= 20; ++a) { // * ++a is executed after the loop body
+      if (a % 3 == 0) a++; else if (a % 2 == 0) a = a * 2; // * a = 10 (a % 2 == 0) -> a = 20
+      System.out.println(a); // * prints 20 and ends the loop (a = 21)
+    }
+  }
+}
+
+class EmptySpace {
+  // * trim() removes leading and trailing spaces (   Jane Doe   -> Jane Doe) (" " -> " ")
+  // * The trick here is that the trim() method returns a new String object and does not modify the original String object.
+  // * The original String object is not modified because String objects are immutable.
+  public static void main(String[] args) {
+    String str = " ";
+    str.trim(); // * str = str.trim()
+    System.out.println(str.equals("") + " " + str.isEmpty()); // prints false false
+
+    System.out.println(" ".trim().equals("")); // prints true
+    System.out.println(" ".trim().isEmpty()); // prints true
+  }
+}
+
+class StringBuilderMutation {
+  static void m(StringBuilder sb) {
+    sb.append("er");
+  }
+  public static void main(String[] args) {
+    StringBuilder sb2 = new StringBuilder("moth");
+    m(sb2);
+    System.out.println(sb2); // prints mother
+  }
+}
 
 class JC {
   String name = "Java";
@@ -96,6 +144,28 @@ class Uni {
   }
 }
 
+class Rope { public static int length = 0; }
+class RopeSwing {
+  private static Rope rope1 = new Rope();
+  private static Rope rope2 = new Rope();
+  { System.out.println(rope1.length); }
+  public short type() {
+  }
+  public static void main(String[] args) {
+    rope1.length = 2;
+    rope2.length = 8;
+    System.out.println(rope1.length);
+  }
+}
+
+class WhatReturnsShort {
+  public short type() {
+    // * return new Integer(3); -> Integer cannot be converted to short
+    // * return new Short(6).longValue(); -> long cannot be converted to short
+    // * return 5L; -> long cannot be converted to short
+    return new Byte((byte) 6);
+  }
+}
 
 class Samples3 {
 
@@ -182,24 +252,46 @@ class Samples3 {
     if (hw.equals(sb.toString())) { System.out.println("match+"); }
   }
 
-  void ex() {
+  void XOR() {
+    boolean x = true, z = true;
+    int y = 20;
+    x = (y != 10) ^ (z=false);  
+    System.out.println(x+", "+y+", "+z);
+  }
 
+  void localDate() {
+    LocalDate xmas = LocalDate.of(2016, 12, 25);
+    xmas.setYear(2017); // DNE
+    System.out.println(xmas.getYear());
+  }
+
+  void rowCol() {
+    int count = 0;
+    ROW_LOOP: for(int row = 1; row <=3; row++)
+      for(int col = 1; col <=2 ; col++) {
+        if(row * col % 2 == 0) continue ROW_LOOP;  // Line 6
+        count++;
+      }
+    System.out.println(count);
   }
 }
 
 class RunSamples {
   public static void main(String[] args) {
     Samples3 s = new Samples3();
-    s.scope(); 
-    s.os(); 
-    s.eString();
-    s.strMatch();
-    s.math();
-    s.bools();
-    s.stopLoop();
-    s.byteVal();
-    s.matrix();
-    s.print();
+    // s.scope(); 
+    // s.os(); 
+    // s.eString();
+    // s.strMatch();
+    // s.math();
+    // s.bools();
+    // s.stopLoop();
+    // s.byteVal();
+    // s.matrix();
+    // s.print();
+    // s.XOR();
+    // s.localDate();
+    // s.rowCol();
   }
 }
 
