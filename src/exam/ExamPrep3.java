@@ -1,8 +1,11 @@
 package exam;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class ExamPrep3 {}
 
@@ -167,6 +170,92 @@ class WhatReturnsShort {
   }
 }
 
+class BirdSeed {
+  private int numberBags;
+  boolean call;
+  public BirdSeed() {
+    this(2); // calls the constructor with the int parameter
+    call = false;
+    new BirdSeed(2); // creates a new object and does not assign the value to the numberBags field
+  }
+  public BirdSeed(int numberBags) {
+    this.numberBags = numberBags;
+  }
+  public static void main(String[] args) {
+    BirdSeed seed = new BirdSeed();
+    System.out.println(seed.numberBags);
+  }
+}
+
+class TestField {
+  int x;
+  int y;
+  public void doStuff(int x, int y) {
+    this.x = x;
+    y = this.y;
+  }
+  public void display() {
+    System.out.print(x + " " + y + " : ");
+  }
+  public static void main(String[] args) {
+    TestField m1 = new TestField();
+    m1.x = 100;
+    m1.y = 200;
+    TestField m2 = new TestField();
+    m2.doStuff(m1.x, m1.y);
+    m1.display();
+    m2.display();
+  }
+}
+
+class Printer {
+  public void print() {
+    try {
+      throw new FileNotFoundException();
+    } catch (IOException exception) {
+      System.out.print("Z");
+    } catch (FileNotFoundException enfe) {
+      System.out.print("X");
+    } finally {
+      System.out.print("Y");
+    }
+  }
+  public static void main(String... ink) {
+    new Printer().print();
+  }
+}
+
+class Deer {
+  public Deer() { System.out.print("Deer"); }
+  public Deer(int age) { System.out.print("DeerAge"); }
+  private boolean hasHorns() { return false; }
+  public static void main(String[] args) {
+    Deer deer = new Reindeer(5);
+    System.out.println(","+deer.hasHorns());             // Line 07
+  }
+}
+class Reindeer extends Deer {
+  public Reindeer(int age) { System.out.print("Reindeer"); }
+  public boolean hasHorns() { return true; }             // Line 12
+}
+
+class Series {
+  private boolean flag;
+  public void displaySeries() {
+    int num = 2;
+    while (flag) {
+      if (num % 7 == 0)
+        flag = false;
+      System.out.print(num);
+      num += 2;
+    }
+  }
+  public static void main(String[] args) {
+    new Series().displaySeries();
+  }
+}
+
+
 class Samples3 {
 
   void print() {
@@ -274,6 +363,26 @@ class Samples3 {
       }
     System.out.println(count);
   }
+
+  void rawList() {
+    List list = new ArrayList();
+    list.add(new StringBuilder(""));
+    list.add("");
+    for (Object e : list) 
+      // Not sure which condition is true
+      if (e instanceof StringBuilder) ((StringBuilder)e).append("OK");
+      else ((String)e).concat("OK"); 
+    System.out.println(list); // prints [OK, ] 
+  }
+
+  void ex() {
+    ArrayList<Integer> values = new ArrayList<>();
+    values.add(4);
+    values.add(5);
+    values.set(1, 6);
+    values.remove(0);
+    for (Integer v : values) System.out.print(v);
+  }
 }
 
 class RunSamples {
@@ -292,6 +401,44 @@ class RunSamples {
     // s.XOR();
     // s.localDate();
     // s.rowCol();
+    // s.rawList();
+    s.ex();
+    "a".replace("a","b");
+    "a".replace('a','b');
+    "a".replace(0,"a".length(),"b");
+    "a".replace(new StringBuilder('a'),"");
+    "a".replace(new StringBuilder('a'), new StringBuilder("b"));
+    new StringBuilder("a").replace("","b");
+    new StringBuilder("a").replace('a','b');
+    new StringBuilder("a").replace(0,1,"b");
   }
 }
 
+class ChooseWisely {
+  public ChooseWisely() { super(); }
+  public int choose(int choice) { return 5; }
+  public int choose(short choice) { return 2; }
+  public int choose(long choice) { return 11; }
+  public static void main(String[] path) {
+    System.out.print(new ChooseWisely().choose((byte)2+1));
+  }
+}
+
+
+class RopeT {
+  public static int LENGTH = 5;
+  static {
+    LENGTH = 10;
+  }
+  public static void swing() {
+    System.out.print("swing ");
+  }
+}
+ 
+public class Chimp {
+  public static void main(String[] args) {
+    RopeT.swing();                           // Line 5
+    new RopeT().swing();                     // Line 6
+    System.out.println(LENGTH);             // Line 7
+  }
+}
