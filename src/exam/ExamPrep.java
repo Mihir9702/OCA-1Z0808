@@ -376,13 +376,29 @@ class Samples {
 }
 
 class App {
-  static void m(int i) {
+  static void i(int i) {
     i += 7;
   }
-  public void main(String[] args) {
+
+  static void s(String s) {
+    s += " World";
+  }
+
+  void iint() {
     int j = 12;
-    m(j); // needs to be System.out.println(m(j)); to print 19
+    i(j); // needs to be System.out.println(m(j)); to print 19
     System.out.println(j); // prints 12
+  }
+
+  void str() {
+    String s = "Hello";
+    s(s); // needs to be System.out.println(s(s)); to print Hello World
+    System.out.println(s); // prints Hello
+  }
+
+  public void main(String[] args) {
+    iint();
+    str();
   }
 }
 
@@ -408,6 +424,12 @@ class Twin {
       System.out.println("Equal");
     } else {
       System.out.println("Not Equal"); // Not Equal cus == compares the references of the objects
+    }
+
+    if (t1.equals(t2)) {
+      System.out.println("Equal"); // Equal cus .equals() compares the values of the objects
+    } else {
+      System.out.println("Not Equal");
     }
 
     System.out.println(t1.hashCode()); // 366712642
@@ -484,3 +506,19 @@ class Casting {
     System.out.println(sstr); // ClassCastException: Integer cannot be cast to String
   }
 }
+
+// teach me java 8 so I can pass my 1z0-808 exam
+
+class E1 {
+  // what is the output of the following code?
+  public static void main(String[] args) { 
+    int i = 0;
+    int[] iA = {10, 20};
+    iA[i] = i = 30; // 
+    System.out.println("" + iA[0] + " " + iA[1] + "  " + i);
+  }
+}
+
+
+
+

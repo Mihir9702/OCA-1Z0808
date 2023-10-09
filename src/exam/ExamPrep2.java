@@ -323,6 +323,13 @@ class MyApp {
   }
 }
 
+class TestApps {
+  public static void main(String[] args) {
+    Samples2 s = new Samples2();
+    s.dates();
+  }
+}
+
 class Samples2 {
 
   void continueInLoop() {
@@ -428,5 +435,21 @@ class Samples2 {
     ages.add(7);  // is it autoboxing? // yes
     ages.add(null);  // is it autoboxing? // no
     for (int age : ages) System.out.print(age);
+  }
+
+  void mathfun() {
+    int x = 10;
+    int y = x--;
+    int z = --y;
+    int a = x++;
+    int b = x < y ? x < z ? x : y < z ? y : z;
+    System.out.println(b);
+  }
+
+  void dates() {
+    String date = LocalDate.parse("2016-07-13")
+                        .plusDays(31)
+                        .format(DateTimeFormatter.ISO_DATE_TIME);
+    System.out.println(date);
   }
 }

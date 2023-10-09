@@ -6,7 +6,10 @@ import java.util.Collections;
 import java.util.List;
 
 // * Overloaded methods must have a different list of parameters, while overridden methods must have the exact same return type.
+// * List is an interface and not a class. It cannot be instantiated. While Object is a concrete class, it does not implement the List interface
 
+// exceptions are not polymorphic
+// garbage collection
 public class ExamPrep4 {}
 
 
@@ -83,15 +86,33 @@ public class Beaver extends Rodent {
   }
 }
 
+import java.util.*;
+import java.util.function.*;
+class PrintNegative {
+  public static void main(String[] args) {
+    List<String> list = new ArrayList<>();
+    list.add("-5");
+    list.add("0");
+    list.add("5");
+    print(list, e -> e < 0);
+  }
+  public static void print(List<String> list, Predicate<Integer> p) {
+    for (String num : list)
+      if (p.test(num)) // Predicate<Integer> p, but num is a String
+        System.out.println(num);
+  }
+}
+
+
 class Two { 
   public static void main(String[] args) {
-    try {
-      doStuff();
-      System.out.println("1");
-    }
-    catch (Exception e) {
-      System.out.println("2");
-    }
+    // try {
+    //   doStuff();
+    //   System.out.println("1");
+    // }
+    // catch (Exception e) {
+    //   System.out.println("2");
+    // }
   }
   public static void doStuff() {
     if(Math.random() > 0.5) throw new RuntimeException(); doMoreStuff();
