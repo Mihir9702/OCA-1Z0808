@@ -1628,10 +1628,25 @@ class Casting {
   }
 }
 
-// teach me java 8 so I can pass my 1z0-808 exam
+class Coat {
+  public Long zipper() throws Exception {
+    try {
+      String checkZipper = (String)new Object();
+    } catch (Exception e) {
+      throw RuntimeException("Broken!"); // new keyword
+    }
+    return null;
+  }
+  public static void main(String... warmth) {
+    try {
+      new Coat().zipper();
+      System.out.print("Finished!");
+    } catch (Throwable t) {}
+  }
+}
+
 
 class E1 {
-  // what is the output of the following code?
   public static void main(String[] args) { 
     int i = 0;
     int[] iA = {10, 20};
@@ -1640,6 +1655,41 @@ class E1 {
   }
 }
 
+class E2 {
+  public static void main(String[] args) {
+    int k = 0;
+    for (int i = 10; i > 0; i--) {
+      while (i > 3) i -= 3;
+      k += 1;
+    }
+    System.out.println(k);
+  }
+}
 
+class E3 {
+  public static void main(String[] args) {
+    // provide me an example of one of those difficult ternary operator questions
+    int x = 5;
+    int y = 2;
+    int z = 6;
+    int a;
+    // int a = x < 10 ? y > 3 ? z < 1 ? 1 : 2 : 3 : 4;
 
+    if (x < 10) {
+      if (y > 3) {
+        if (z < 1) {
+          a = 1;
+        } else {
+          a = 2;
+        }
+      } else {
+        a = 3;
+      }
+    } else {
+      a = 4;
+    }
+
+    System.out.println(a);
+  }
+}
 
